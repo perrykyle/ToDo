@@ -63,13 +63,13 @@ def update_lists(client):
         'ID': ids
     }
     df = pd.DataFrame(df)
-    df.to_excel('C:/Users/kylep/Desktop/PyCharm Projects/toDoProject/references/lists.xlsx')
+    df.to_excel('C:/Users/kylep/Desktop/PyCharm Projects/ToDo/references/lists.xlsx')
 # Updates the lists on Microsoft To-Do in the Excel sheet, along with their ID's
 #### Only Run when necessary ####
 
 
 def get_lists():
-    df = pd.read_excel('C:/Users/kylep/Desktop/PyCharm Projects/toDoProject/references/lists.xlsx')
+    df = pd.read_excel('C:/Users/kylep/Desktop/PyCharm Projects/ToDo/references/lists.xlsx')
     lists = df['List Name'].values.tolist()
     ids = df['ID'].values.tolist()
     return {lists[i]: ids[i] for i in range(len(lists))}
@@ -92,7 +92,7 @@ def get_tasks(list_keyword, client):
 
 
 def push_tomorrow_tasks(test_date):
-    df = pd.read_excel('C:/Users/kylep/Desktop/PyCharm Projects/toDoProject/references/lifestyle.xlsx')
+    df = pd.read_excel('C:/Users/kylep/Desktop/PyCharm Projects/ToDo/references/lifestyle.xlsx')
     titles = []
     times = []
     bodies = []
@@ -116,14 +116,14 @@ def push_tomorrow_tasks(test_date):
             times.append(form_datetime_to_str(str(tomorrow), str(row[2])))
             bodies.append(row[3])
 
-    df = pd.read_excel('C:/Users/kylep/Desktop/PyCharm Projects/toDoProject/references/master.xlsx')
+    df = pd.read_excel('C:/Users/kylep/Desktop/PyCharm Projects/ToDo/references/master.xlsx')
     xtra = {
         'title': titles,
         'due_date': times,
         'body': bodies
     }
     df = df.append(pd.DataFrame(xtra))
-    df.to_excel('C:/Users/kylep/Desktop/PyCharm Projects/toDoProject/references/master.xlsx', index=False)
+    df.to_excel('C:/Users/kylep/Desktop/PyCharm Projects/ToDo/references/master.xlsx', index=False)
 # Pushes the tasks for tomorrow into the master excel
 # Pulled from "lifestyle.xlsx"
 # If I want to update my daily routine I would go to that file and edit there
@@ -159,7 +159,7 @@ def day_conv():
 
 
 def dump_old_master():
-    df = pd.read_excel('C:/Users/kylep/Desktop/PyCharm Projects/toDoProject/references/master.xlsx')
+    df = pd.read_excel('C:/Users/kylep/Desktop/PyCharm Projects/ToDo/references/master.xlsx')
 
     today = datetime(datetime.now().year, datetime.now().month, datetime.now().day)
 
@@ -179,7 +179,7 @@ def dump_old_master():
         'body': g_body
     }
 
-    pd.DataFrame(new_df).to_excel('C:/Users/kylep/Desktop/PyCharm Projects/toDoProject/references/master.xlsx', index=False)
+    pd.DataFrame(new_df).to_excel('C:/Users/kylep/Desktop/PyCharm Projects/ToDo/references/master.xlsx', index=False)
 # Dumps every event that is before today's date
 
 
@@ -189,7 +189,7 @@ def dump_master():
         'due_date': [],
         'body': []
     }
-    pd.DataFrame(df).to_excel('C:/Users/kylep/Desktop/PyCharm Projects/toDoProject/references/master.xlsx', index=False)
+    pd.DataFrame(df).to_excel('C:/Users/kylep/Desktop/PyCharm Projects/ToDo/references/master.xlsx', index=False)
 # Dumps the entire master, debugging use
 
 
@@ -214,7 +214,7 @@ def cut_new_tasks(client):
             due_date.append(str(task.due_date-timedelta(hours=5)))
             body.append(str(task.body_text).strip())
 
-    df = pd.read_excel('C:/Users/kylep/Desktop/PyCharm Projects/toDoProject/references/master.xlsx')
+    df = pd.read_excel('C:/Users/kylep/Desktop/PyCharm Projects/ToDo/references/master.xlsx')
     xtra = {
         'title': title,
         'due_date': due_date,
@@ -222,7 +222,7 @@ def cut_new_tasks(client):
     }
 
     df = df.append(pd.DataFrame(xtra))
-    df.to_excel('C:/Users/kylep/Desktop/PyCharm Projects/toDoProject/references/master.xlsx', index=False)
+    df.to_excel('C:/Users/kylep/Desktop/PyCharm Projects/ToDo/references/master.xlsx', index=False)
 
     empty_list("New Tasks", client)
 # Takes every task with a due date in "New Tasks" and adds it to the master Excel with proper formatting.
@@ -242,7 +242,7 @@ def empty_list(keyword, client):
 
 
 def push_master(client):
-    df = pd.read_excel('C:/Users/kylep/Desktop/PyCharm Projects/toDoProject/references/master.xlsx')
+    df = pd.read_excel('C:/Users/kylep/Desktop/PyCharm Projects/ToDo/references/master.xlsx')
     df = df.sort_values(by=['due_date'])
 
     today = datetime(datetime.now().year, datetime.now().month, datetime.now().day, 23, 59, 59)
