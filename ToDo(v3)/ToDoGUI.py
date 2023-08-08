@@ -31,6 +31,7 @@ class ToDoManager(tk.Tk):
         # Set window properties
         self.title("To Do Manager")
         self.geometry("350x450")
+        self.iconbitmap('references/logo.ico')
         self.resizable(0, 0)
 
         # Set up styles
@@ -348,6 +349,7 @@ class ToDoManager(tk.Tk):
         self.message_label = tk.Label(self.regen_key_tab, text="", foreground="green")
         self.message_label.pack(pady=10)
 
+    # Generates authentication url to add to button
     def gen_auth_url(self):
         client_id = os.getenv("CLIENT_ID")
         auth_url = ToDoConnection.get_auth_url(client_id)
@@ -356,6 +358,7 @@ class ToDoManager(tk.Tk):
         self.auth_url_button.config(text="Authorization Link", command=lambda: webbrowser.open(auth_url),
                                     state="normal")
 
+    # Function which processes token based on redirect URL
     def get_token(self):
         client_id = os.getenv("CLIENT_ID")
         client_secret = os.getenv("CLIENT_SECRET")
