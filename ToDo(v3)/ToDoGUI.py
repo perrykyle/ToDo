@@ -1,7 +1,7 @@
 # tasks.txt format (auto generated)
 
 # upcoming_tasks.txt format:
-## uuid,Task Name,hh:mm-YYYY-MM-DD,Task Description
+## uuid,Task Name,hh:mm-YYYY-MM-DD,(Task Description)*optional
 ### NO COMMAS ###
 
 import tkinter as tk
@@ -48,8 +48,8 @@ class ToDoManager(tk.Tk):
 
     def load_tasks(self):
         tasks = []
-        if os.path.exists("tasks.txt"):
-            with open("tasks.txt", "r") as file:
+        if os.path.exists("references/tasks.txt"):
+            with open("references/tasks.txt", "r") as file:
                 for line in file:
                     id, name, time, day_codes, description = line.strip().split(",")
                     days = ', '.join([days_of_week[code] for code in day_codes])
@@ -58,8 +58,8 @@ class ToDoManager(tk.Tk):
 
     def load_upcoming_tasks(self):
         tasks = []
-        if os.path.exists("upcoming_tasks.txt"):
-            with open("upcoming_tasks.txt", "r") as file:
+        if os.path.exists("references/upcoming_tasks.txt"):
+            with open("references/upcoming_tasks.txt", "r") as file:
                 for line in file:
                     id, name, datetime, description = line.strip().split(",")
                     tasks.append(UpcomingTasks(id, name, datetime, description))
@@ -115,10 +115,10 @@ class ToDoManager(tk.Tk):
 
     def delete_task(self, task_id):
         lines = []
-        with open("tasks.txt", "r") as file:
+        with open("references/tasks.txt", "r") as file:
             lines = file.readlines()
 
-        with open("tasks.txt", "w") as file:
+        with open("references/tasks.txt", "w") as file:
             for line in lines:
                 if line.split(",")[0] != task_id:
                     file.write(line)
@@ -128,10 +128,10 @@ class ToDoManager(tk.Tk):
 
     def delete_upcoming_task(self, task_id):
         lines = []
-        with open("upcoming_tasks.txt", "r") as file:
+        with open("references/upcoming_tasks.txt", "r") as file:
             lines = file.readlines()
 
-        with open("upcoming_tasks.txt", "w") as file:
+        with open("references/upcoming_tasks.txt", "w") as file:
             for line in lines:
                 if line.split(",")[0] != task_id:
                     file.write(line)
@@ -141,8 +141,8 @@ class ToDoManager(tk.Tk):
 
     def create_new_task(self):
         name = self.name_entry.get().strip()
-        hours = self.hour_entry.get().strip()
-        minutes = self.minute_entry.get().strip()
+        hours = self.hour_entry.get().strip().zfill(2)
+        minutes = self.minute_entry.get().strip().zfill(2)
         description = self.description_text.get("1.0", tk.END).strip()
 
         time = f"{hours}:{minutes}"
@@ -173,7 +173,7 @@ class ToDoManager(tk.Tk):
             return
 
         id = str(uuid.uuid4())
-        with open("tasks.txt", "a") as file:
+        with open("references/tasks.txt", "a") as file:
             file.write(f"{id},{name},{time},{days},{description}\n")
 
         self.show_task_list()
@@ -209,7 +209,7 @@ class ToDoManager(tk.Tk):
         days = ["Mon", "Tues", "Wed", "Thu", "Fri", "Sat", "Sun"]
         for index, day in enumerate(days):
             day_var = tk.BooleanVar()
-            ttk.Checkbutton(self.new_task_tab, text=day, variable=day_var).grid(row=6, column=0, padx=(index * 45, 0),
+            ttk.Checkbutton(self.new_task_tab, text=day, variable=day_var).grid(row=6, column=0, padx=(index * 50, 0),
                                                                             sticky="nsew")
             self.day_checkboxes[index] = day_var
 
