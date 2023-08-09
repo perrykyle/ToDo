@@ -1,18 +1,15 @@
-# CURRENTLY IN DEV, NOT READY FOR USE
-# up to date code in ToDov3
+# ToDo Project: Manage Your Weekly Tasks (Work in Progress)
 
-
-
-
-# ToDo Project: Manage Your Weekly Tasks with Ease
-
-![Project Banner](link-to-banner-image)
+![Project Banner](ToDo(v3)\resources\todo.PNG)
 
 ## Introduction
-Introducing ToDo, a seamless Graphical User Interface designed to manage your weekly tasks and more! Connect your Apple reminders with Microsoft ToDo, and stay on top of your schedule. Powered by Microsoft Graph's ToDo API and incorporating authentication within the GUI, this is your ultimate task manager.
+Welcome to ToDo Manager, a Microsoft ToDo manager which aims to organize your life by combining all of your deadlines into one application. The benefit of using Microsoft ToDo is that you can integrate this seamlessly with your Apple Reminders, access your tasks across multiple platforms, and enjoy a professional clean interface provided by microsoft. Unforutnately, Microsoft ToDo was created with the implication that only single-time tasks will be added to this application, and not used as a day-to-day task manager. Powered by Microsoft Graph's ToDo API, this evolving project aims to seamlessly connect your weekly tasks and Apple Reminders with Microsoft ToDo. Dive into the existing features and stay tuned for more!
+
+> **Note**: This project is actively under development. Some features might be incomplete or subject to change.
 
 ## Table of Contents
-- [Features](#features)
+- [Current Features](#current-features)
+- [Planned Features](#planned-features)
 - [Technologies Used](#technologies-used)
 - [Setup and Installation](#setup-and-installation)
 - [Usage](#usage)
@@ -20,35 +17,33 @@ Introducing ToDo, a seamless Graphical User Interface designed to manage your we
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
 
-## Features
-- **Weekly Task Management**: Outline the functionality for managing weekly tasks.
-- **Microsoft Graph ToDo Integration**: Explain how the Microsoft Graph ToDo API is utilized.
-- **Apple Reminders Connection**: Detail the process of linking Apple reminders with Microsoft ToDo.
-- **Authentication within GUI**: Describe the authentication process.
+## Current Features
+- **ToDo Manager GUI**: Add, view, and delete your weekly tasks, as well as view and delete your upcoming non-weekly tasks (complete)
+- **Authentication**: Easily authenticate yourself with the Graph API within the GUI, and refresh your access token when needed (complete)
+- **Microsoft Graph ToDo Integration**: Weekly tasks that are added to the GUI are automatically added to Microsoft ToDo (in-progress)
+- **Apple Reminders Integration**: Signing into your Microsoft account within apple reminders will automatically add your reminders to Microsoft ToDo, and format them appropriately to fit in with your weekly tasks (in-progress)
 
-![Feature Image](link-to-feature-image)
+![Current Feature Image](ToDo(v3)/resources/auth.png)
+
+## Planned Features
+- Add Firebase server access to run task refresh functions the background
 
 ## Technologies Used
-- Microsoft Graph ToDo API
-- Apple Reminders
-- Your GUI Framework
-- Any other relevant technologies
+- Microsoft Graph API
+- Microsoft ToDo
+- tkinter
+- Express
 
 ## Setup and Installation
-Provide detailed instructions for setup and installation.
+Provide detailed instructions for setup and installation will be provided upon official release
 
 ## Usage
-Include examples, images, or gifs to demonstrate how to use the application.
-
-## Contributing
-Explain how others can contribute to this project.
+TBD
 
 ## License
-Include license information.
 
-## Acknowledgements
-Mention any mentors, peers, or resources that helped you in this project.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-Leave a ⭐️ if you like this project!
+Stay tuned for updates, and feel free to explore the current state of the project. Your feedback and contributions are welcomed!
