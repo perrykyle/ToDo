@@ -8,6 +8,7 @@ import uuid
 from pymstodo import ToDoConnection
 import webbrowser
 from dotenv import load_dotenv, set_key
+from functions.ManageTasks import run_functions
 
 
 # Dictionary mapping day numbers to their string names
@@ -371,6 +372,42 @@ class ToDoManager(tk.Tk):
         except Exception:
             self.message_label.config(text="Authentication Unsuccessful", foreground="red")
 
+    # Tab showing the refresh tasks
+    def show_refresh_tasks(self):
+        # Clear the tab
+        for widget in self.refresh_tab.winfo_children():
+            widget.destroy()
+
+        # Create the "Refresh tasks" button
+        refresh_button = ttk.Button(self.refresh_tab, text="Refresh tasks", command=self.handle_refresh)
+        refresh_button.pack(pady=10)
+
+        # Create the status message label (initially empty)
+        self.refresh_status_label = tk.Label(self.refresh_tab, text="", foreground="green")
+        self.refresh_status_label.pack(pady=10)
+
+    # Function calling the refresh tasks function
+    def handle_refresh(self):
+        # Update the status label to "Working..."
+        self.refresh_status_label.config(text="Working...", foreground="black")
+
+        # Attempt to refresh tasks
+        try:
+            self.after(1500, run_functions())
+            # Update the status label to "Tasks successfully refreshed!" in green
+            self.refresh_status_label.config(text="Tasks successfully refreshed!", foreground="green")
+        except Exception as e:
+            # Update the status label to "Authentication/File Structure Error" in red
+            print(e)
+            self.refresh_status_label.config(text="Authentication/Task Structure Error", foreground="red")
+
+        # Call to show upcoming tasks list
+        self.show_upcoming_task_list()
+
+        # Disapear text
+        self.after(3000, lambda: self.refresh_status_label.config(text=""))
+
+
     # Function to create the main widgets
     def create_widgets(self):
         self.tab_control = ttk.Notebook(self)
@@ -379,11 +416,13 @@ class ToDoManager(tk.Tk):
         self.new_task_tab = ttk.Frame(self.tab_control)
         self.upcoming_tasks_tab = ttk.Frame(self.tab_control)
         self.regen_key_tab = ttk.Frame(self.tab_control)
+        self.refresh_tab = ttk.Frame(self.tab_control)
 
         self.tab_control.add(self.view_tab, text='Weekly Tasks')
         self.tab_control.add(self.new_task_tab, text='Add Weekly Task')
-        self.tab_control.add(self.upcoming_tasks_tab, text='Manage Upcoming Tasks')
+        self.tab_control.add(self.upcoming_tasks_tab, text='Upcoming Tasks')
         self.tab_control.add(self.regen_key_tab, text="\U0001F511")
+        self.tab_control.add(self.refresh_tab, text="\U0001F503")
 
         self.tab_control.pack(expand=1, fill='both')
 
@@ -391,6 +430,8 @@ class ToDoManager(tk.Tk):
         self.create_new_task_view()
         self.show_upcoming_task_list()
         self.create_regen_key_view()
+        self.show_refresh_tasks()
+
 
     # Run the application
     def run(self):

@@ -1,3 +1,2 @@
-85ed0551-8fca-43a9-9e2b-1b41656eefb2,Wake Up,08:30,012345,Good morning
 f512a4f9-a3a8-46f6-9f07-0fbb919b7012,Make Bed and Brush Teeth,08:35,012345,Maybe play with Loki
 8db23119-7797-439b-8dde-61d7ebf5019f,Make Coffee and Eat Protein,08:45,012345,Espresso Machine :)

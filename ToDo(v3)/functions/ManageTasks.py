@@ -100,7 +100,7 @@ def convert_to_est(utc_string):
 
 # Appends upcoming tasks to upcoming_tasks.txt
 def append_to_file(tasks):
-    with open('../references/upcoming_tasks.txt', 'a') as file:
+    with open('references/upcoming_tasks.txt', 'a') as file:
         for task in tasks:
             if task["due_date"] != 'Delete':
                 line = f'{uuid.uuid4()},{task["name"]},{task["due_date"]},{task["body"]}\n'
@@ -135,7 +135,7 @@ def add_new_tasks(client):
 # then sorts them in order of upcoming to later on
 # Also deletes all tasks in "Tomorrow" and in "Tasks"
 def sort_and_remove_past_tasks(client):
-    file_path = '../references/upcoming_tasks.txt'
+    file_path = 'references/upcoming_tasks.txt'
     current_datetime = datetime.now()
     midnight_today = datetime(current_datetime.year, current_datetime.month, current_datetime.day)
 
@@ -177,7 +177,7 @@ def sort_and_remove_past_tasks(client):
 def read_weekly_tasks_from_file():
     tasks_list = []
 
-    with open('../references/tasks.txt', 'r') as file:
+    with open('references/tasks.txt', 'r') as file:
         for line in file:
             task_data = line.strip().split(',')
             task = WeeklyTasks(*task_data)
@@ -190,7 +190,7 @@ def read_weekly_tasks_from_file():
 def read_upcoming_tasks_from_file():
     upcoming_tasks_list = []
 
-    with open('../references/upcoming_tasks.txt', 'r') as file:
+    with open('references/upcoming_tasks.txt', 'r') as file:
         for line in file:
             task_data = line.strip().split(',')
             task = UpcomingTasks(*task_data)
@@ -273,9 +273,9 @@ def populate_lists(client):
     post_unilist(client, tomorrow_tasks, "tomorrow", 1)
 
 
-# Organizes functions
-if __name__ == "__main__":
+def run_functions():
     # Firstly, we establish the connection to the client using the values in the environment
+    print('buttonpressed')
     client = establish_connection()
 
     # Then, we guarantee that "New Tasks" and "Tomorrow" lists exist, as necessary for the program
@@ -292,3 +292,4 @@ if __name__ == "__main__":
 
     # Finally, we populate the "Tasks" and "Tomorrow" lists with the data from "tasks.txt" and "upcoming_tasks.txt"
     populate_lists(client)
+
