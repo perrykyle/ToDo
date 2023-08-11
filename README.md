@@ -19,11 +19,11 @@ Welcome to ToDo Manager, a Microsoft ToDo manager which aims to organize your li
 ## Current Features
 - **Interactive GUI** - Manage all of your upcoming and weekly tasks from the "ToDoGUI" application. Here you can add your weekly schedule, and handle upcoming tasks from Microsoft ToDo.
 
-![Current Feature Image](./resources/features.png)
+![Current Feature Image](./resources/features.PNG)
 
 - **Apple Reminders Integration** - Add tasks to your Microsoft ToDo within Reminders. ToDo will automatically integrate them into your schedule and will let you know through Microsoft ToDo when it is time to complete them.
 
-![Current Feature Image](./resources/reminders.png)
+![Current Feature Image](./resources/reminders.PNG)
 
 - **Siri Compatabillity** - Setting tasks is as easy as saying "Hey Siri, remind me to do my homework at 5pm". Siri will automatically add this to your Apple Reminders, and ToDo will automatically add this to your schedule.
 - **Easy Authentiation** - Authentication is as easy as clicking a button and signing in. ToDo will handle the rest of your Microsoft Authentication for you.
