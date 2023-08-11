@@ -191,7 +191,7 @@ class ToDoManager(tk.Tk):
         ttk.Label(self.new_task_tab, text="Days:").grid(row=5, column=0, pady=(10, 0), sticky="nsew")
 
         self.day_checkboxes = {}
-        days = ["Mon", "Tues", "Wed", "Thu", "Fri", "Sat", "Sun"]
+        days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"]
         for index, day in enumerate(days):
             day_var = tk.BooleanVar()
             ttk.Checkbutton(self.new_task_tab, text=day, variable=day_var).grid(row=6, column=0, padx=(index * 45, 0),
