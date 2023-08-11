@@ -39,7 +39,7 @@ Welcome to ToDo Manager, a Microsoft ToDo manager which aims to organize your li
 
 ## Setup and Installation
 To set up and install this project, follow these steps:
-1. Either [**Download Here**](https://drive.google.com/file/d/1GYv4MvPBQb1hPsTQugIuaOTx_NeQ2o_n/view?usp=sharing)(reccommended) or clone this repository to your local machine
+1. Either [**Download Here**](https://drive.google.com/file/d/1GYv4MvPBQb1hPsTQugIuaOTx_NeQ2o_n/view?usp=sharing) (reccommended) or clone this repository to your local machine
 2. Create a [Microsoft Account](https://account.microsoft.com) using a personal email of your choice
      - This will be the account that you will use to sign into the application
      - You can use an already existing email (gmail, hotmail, etc) or create a new one
@@ -49,7 +49,7 @@ To set up and install this project, follow these steps:
         - Name your application
         - Select "Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)"
         - Client Application
-    - Under "Platform Configurations" click "Add a platform
+    - Under "Platform Configurations" click "Add a platform"
         - Select Web application and enter 'https://localhost/login/authorized' as the Redirect URI
     - Click Certificates and Secrets
         - Click "New Client Secret" and enter a description
@@ -58,7 +58,7 @@ To set up and install this project, follow these steps:
     - Replace the values of the following variables with the values from your Azure Application
         - CLIENT_ID
         - CLIENT_SECRET
-    - **Dont include any spaces between the '-'sign and the value**
+    - **Dont include any spaces between the '=' sign and the value**
     - **Ensure that there is a an extra line at the end of the file**
 
 
@@ -72,11 +72,20 @@ Now that your Azure Application is conigured and your .env file is set up, you c
 2. Navigate to the "Authenticate" tab and Follow the steps to gain a Token
     - You should only have to do this once! The token will be saved in your .env file
 3. Navigate to the "Refresh Tasks" tab and click "Refresh Tasks"
-    - This will add all of the existing tasks from the GUI into your Microsoft ToDo Applicaton
+    - This will add all of the existing tasks from the GUI into your Microsoft ToDo Applicaton along with the "Tomorrow" and "New Tasks" lists
 
 That's it! You can now use the application to manage your weekly tasks. 
 
-To incorporate your upcoming tasks, just enter your reminders into Apple Reminders under the "New Tasks" list. ToDo will automatically add these tasks to your schedule and will let you know when it is time to complete them.
+To incorporate your upcoming tasks, follow these steps:
+1. Open your "Settings" app on your iOS device
+2. Locate "Reminders"
+3. Click "Accounts"
+4. Click "Add Account"
+5. Click "Outlook"
+6. Add your Microsoft Account
+7. Enable Reminders and Click "Save"
+
+Now you should see your "New Tasks" list in Apple Reminders, along with the other lists from Microsoft ToDo.
 
 To incoporate Siri, follow these steps:
 1. Open your Settings app on your iOS device
