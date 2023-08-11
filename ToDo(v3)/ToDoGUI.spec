@@ -6,7 +6,7 @@ a = Analysis(
     ['ToDoGUI.py'],
     pathex=[],
     binaries=[],
-    datas=[('references/tasks.txt', 'references'), ('references/logo.ico', 'references'), ('references/upcoming_tasks.txt', 'references'), ('functions/ManageTasks.py', 'functions'), ('.env', '.')],
+    datas=[('references/tasks.txt', 'references'), ('references/logo.ico', 'references'), ('references/upcoming_tasks.txt', 'references'), ('ManageTasks.py', '.'), ('.env', '.')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

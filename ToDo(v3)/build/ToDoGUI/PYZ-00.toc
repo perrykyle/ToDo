@@ -366,6 +366,10 @@
   ('IPython.utils.wildcard',
    'C:\\Users\\kylep\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\IPython\\utils\\wildcard.py',
    'PYMODULE'),
+  ('ManageTasks',
+   'C:\\Users\\kylep\\Desktop\\PyCharm '
+   'Projects\\ToDo\\ToDo(v3)\\ManageTasks.py',
+   'PYMODULE'),
   ('OpenSSL',
    'C:\\Users\\kylep\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\OpenSSL\\__init__.py',
    'PYMODULE'),
@@ -1766,11 +1770,6 @@
    'PYMODULE'),
   ('ftplib',
    'C:\\Users\\kylep\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\ftplib.py',
-   'PYMODULE'),
-  ('functions', '-', 'PYMODULE'),
-  ('functions.ManageTasks',
-   'C:\\Users\\kylep\\Desktop\\PyCharm '
-   'Projects\\ToDo\\ToDo(v3)\\functions\\ManageTasks.py',
    'PYMODULE'),
   ('getopt',
    'C:\\Users\\kylep\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\getopt.py',

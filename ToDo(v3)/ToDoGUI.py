@@ -3,12 +3,11 @@ import threading
 import tkinter as tk
 from datetime import datetime
 from tkinter import ttk
-from tkinter import filedialog
 import uuid
 from pymstodo import ToDoConnection
 import webbrowser
 from dotenv import load_dotenv, set_key
-from functions.ManageTasks import run_functions
+from ManageTasks import run_functions
 
 
 # Dictionary mapping day numbers to their string names
@@ -393,7 +392,7 @@ class ToDoManager(tk.Tk):
 
         # Attempt to refresh tasks
         try:
-            self.after(1500, run_functions())
+            self.after(1750, run_functions())
             # Update the status label to "Tasks successfully refreshed!" in green
             self.refresh_status_label.config(text="Tasks successfully refreshed!", foreground="green")
         except Exception as e:
